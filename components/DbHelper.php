@@ -9,7 +9,7 @@
 /**
  * The Database Helper class
  *
- * @author Bui Sy Nguyen <nguyenbs@gmail.com>
+ * @author Bui Sy Nguyen <nguyenbs@projectkit.net>
  */
 class DbHelper {
     /**
