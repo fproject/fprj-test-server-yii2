@@ -8,6 +8,7 @@ $config = [
     'bootstrap' => ['log'],
     'components' => [
         'request' => [
+            'baseUrl' => '/',//This is used for shared hosting in hostinger.vn
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'x7t9iRnuVocv4cKlLqYxAhzZ7lx19Cxw',
             'parsers' => [
@@ -42,6 +43,7 @@ $config = [
         ],
         'db' => require(__DIR__ . '/db.php'),
         'urlManager' => [
+            'baseUrl' => '/',//This is used for shared hosting in hostinger.vn
             'enablePrettyUrl' => true,
             'enableStrictParsing' => true,
             'showScriptName' => false,
