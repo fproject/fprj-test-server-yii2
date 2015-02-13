@@ -116,7 +116,7 @@ class DbHelper {
     }
 
     /**
-     * Creates a multiple INSERT command with ON DUPLICATE KEY UPDATE statement.
+     * Creates a multiple UPDATE command.
      * This method compose the SQL expression via given part templates, providing ability to adjust
      * command for different SQL syntax.
      * @param string $table the table that has new rows will be updated.
