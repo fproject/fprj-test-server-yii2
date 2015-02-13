@@ -127,19 +127,19 @@ class DbHelper {
      * @throws \yii\db\Exception
      * @return \yii\db\Command multiple insert command
      */
-    private static function createMultipleUpdateCommand($table, $data, $pkNames, array $templates=array())
+    public static function createMultipleUpdateCommand($table, $data, $pkNames, $templates=null)
     {
-        $templates=array_merge(
-            [
+        if(is_null($templates))
+        {
+            $templates = [
                 'rowUpdateStatement'=>'UPDATE {{tableName}} SET {{columnNameValuePairs}} WHERE {{rowUpdateCondition}}',
                 'columnAssignValue'=>'{{column}}={{value}}',
                 'columnValueGlue'=>', ',
                 'rowUpdateConditionExpression'=>'{{pkName}}={{pkValue}}',
                 'rowUpdateConditionJoin'=>' AND ',
                 'rowUpdateStatementGlue'=>'; ',
-            ],
-            $templates
-        );
+            ];
+        }
 
         $tableSchema=self::db()->schema->getTableSchema($tableName=$table);
 
