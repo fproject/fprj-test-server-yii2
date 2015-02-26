@@ -1,0 +1,7 @@
+RewriteEngine on
+#To deploy on hostinger.vn, use '/web'
+RewriteBase /fprj-test/web
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d 
+
+RewriteRule . index.php
