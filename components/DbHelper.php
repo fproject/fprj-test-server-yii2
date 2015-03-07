@@ -1,9 +1,9 @@
 <?php
 ///////////////////////////////////////////////////////////////////////////////
 //
-// Licensed Source Code - Property of ProjectKit.net
+// Licensed Source Code - Property of f-project.net
 //
-// © Copyright ProjectKit.net 2015. All Rights Reserved.
+// © Copyright f-project.net 2015. All Rights Reserved.
 //
 ///////////////////////////////////////////////////////////////////////////////
 /**
@@ -11,7 +11,8 @@
  *
  * @author Bui Sy Nguyen <nguyenbs@projectkit.net>
  */
-class DbHelper {
+class DbHelper
+{
     /**
      * Inserts a row into a table based on attributes.
      * @param string $table the table to insert

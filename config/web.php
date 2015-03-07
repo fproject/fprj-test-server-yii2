@@ -48,7 +48,7 @@ $config = [
             'enableStrictParsing' => true,
             'showScriptName' => false,
             'rules' => [
-                ['class' => 'yii\rest\UrlRule', 'controller' => 'user'],
+                ['class' => 'app\components\rest\UrlRule', 'controller' => 'user'],
             ],
         ],
     ],
