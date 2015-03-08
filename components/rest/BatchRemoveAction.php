@@ -35,7 +35,6 @@ class BatchRemoveAction extends Action
     public function run()
     {
         $ids = Yii::$app->getRequest()->getBodyParams();
-        Yii::trace($ids);
         /* @var $modelCls ActiveRecord */
         $modelCls = new $this->modelClass;
         $pks = $modelCls::primaryKey();
