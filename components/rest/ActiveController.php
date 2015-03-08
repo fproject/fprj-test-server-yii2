@@ -45,6 +45,12 @@ class ActiveController extends \yii\rest\ActiveController
     public $saveScenario = Model::SCENARIO_DEFAULT;
 
     /**
+     * @var string the scenario used for batch-saving models.
+     * @see \yii\base\Model::scenarios()
+     */
+    public $batchSaveScenario = Model::SCENARIO_DEFAULT;
+
+    /**
      * @inheritdoc
      */
     public function actions()
@@ -56,6 +62,12 @@ class ActiveController extends \yii\rest\ActiveController
                 'checkAccess' => [$this, 'checkAccess'],
                 'scenario' => $this->saveScenario,
             ],
+            'batch-save' => [
+                'class' => 'app\components\rest\BatchSaveAction',
+                'modelClass' => $this->modelClass,
+                'checkAccess' => [$this, 'checkAccess'],
+                'scenario' => $this->batchSaveScenario,
+            ],
         ]);
     }
 
@@ -66,6 +78,7 @@ class ActiveController extends \yii\rest\ActiveController
     {
         return array_merge(parent::verbs(),[
             'save' => ['POST'],
+            'batch-save' => ['POST'],
         ]);
     }
 }

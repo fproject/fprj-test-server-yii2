@@ -64,6 +64,7 @@ class UrlRule extends \yii\rest\UrlRule
         'GET,HEAD {id}' => 'view',
         'POST' => 'create',
         'POST save' => 'save',
+        'POST batch-save' => 'batch-save',
         'GET,HEAD' => 'index',
         '{id}' => 'options',
         '' => 'options',

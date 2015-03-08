@@ -6,6 +6,12 @@
 // © Copyright f-project.net 2015. All Rights Reserved.
 //
 ///////////////////////////////////////////////////////////////////////////////
+namespace app\components;
+use Yii;
+use yii\db\Connection;
+use stdClass;
+use yii\db\Exception;
+
 /**
  * The Database Helper class
  *
@@ -14,22 +20,103 @@
 class DbHelper
 {
     /**
-     * Inserts a row into a table based on attributes.
-     * @param string $table the table to insert
-     * @param array $attributes list of attributes that need to be saved.
-     * @return boolean whether the attributes are valid and the record is inserted successfully.
-     */
-    public static function insert($table, $attributes)
-    {
-        return 0 < self::db()->createCommand()->insert($table,$attributes);
-    }
-
-    /**
-     * @return \yii\db\Connection
+     * @return Connection
      */
     private static function db()
     {
         return Yii::$app->db;
+    }
+
+    const SAVE_MODE_AUTO = 0;
+    const SAVE_MODE_INSERT_ALL = 1;
+    const SAVE_MODE_UPDATE_ALL = 2;
+
+    /**
+     * Save a list of data to a table, each row data may be inserted or updated depend on its existence.
+     * This method could be used to achieve better performance during insertion/update of the large
+     * amount of data to the database table.
+     * @param \yii\db\ActiveRecord[] $models list of models to be saved.
+     * If a key is not a valid column name, the corresponding value will be ignored.
+     * @param array $attributeNames name list of attributes that need to be update. Defaults to null,
+     * meaning all fields of corresponding active record will be saved.
+     * This parameter is ignored in the case of insertion
+     * @param int $mode the save mode flag.
+     * If this flag value is set to 0, any model that have a PK value is NULL will be inserted, otherwise it will be update.
+     * If this flag value is set to 1, all models will be inserted regardless to PK values.
+     * If this flag value is set to 2, all models will be updated regardless to PK values
+     * @return array an array of two elements: the first is the last model ID (auto-incremental primary key)
+     * inserted, the second is the number of rows inserted.
+     * If there's no row inserted, the return value is null.
+     */
+    public static function batchSave($models, $attributeNames=[], $mode=self::SAVE_MODE_AUTO)
+    {
+        Yii::trace('batchSave()','application.DbHelper');
+        if(is_null($models) || empty($models))
+            return null;
+        $pkMarks=[];
+        $updateModels=[];
+        $insertModels = [];
+
+        foreach ($models as $model)
+        {
+            if(!isset($tableSchema))
+                $tableSchema = $model->getTableSchema();
+
+            if($mode==self::SAVE_MODE_INSERT_ALL)
+            {
+                $insertModels[] = $model->toArray($attributeNames);
+            }
+            elseif($mode==self::SAVE_MODE_UPDATE_ALL)
+            {
+                $updateModels = $model->toArray($attributeNames);
+            }
+            else
+            {
+                if(property_exists($model,'_isInserting'))
+                {
+                    $inserting = (bool)$model->_isInserting;
+                }
+                else
+                {
+                    $inserting = false;
+                    $pks = $model->getPrimaryKey(true);
+                    foreach($pks as $pkName=>$pkValue)
+                    {
+                        $pkMarks[$pkName] = true;
+                        if(is_null($pkValue) || !is_numeric($pkValue))
+                        {
+                            $inserting = true;
+                            if(!is_numeric($pkValue))
+                            {
+                                $model->$pkName = null;
+                            }
+                            break;
+                        }
+                    }
+                }
+
+                if($inserting)
+                    $insertModels[] = $model->toArray($attributeNames);
+                else
+                    $updateModels[] = $model->toArray($attributeNames);
+            }
+        }
+
+        $retObj = new stdClass();
+
+        if(count($updateModels) > 0)
+        {
+            $retObj->updateCount = self::updateMultiple($tableSchema->name, $updateModels, array_keys($pkMarks));
+        }
+        if(count($insertModels) > 0)
+        {
+            $retObj->insertCount = self::insertMultiple($tableSchema->name, $insertModels);
+            $id = self::db()->getLastInsertID($tableSchema->sequenceName);
+            if(is_numeric($id))
+                $id = $retObj->insertCount + intval($id) - 1;
+            $retObj->lastId = $id;
+        }
+        return $retObj;
     }
 
     /**
@@ -54,9 +141,8 @@ class DbHelper
      * If a key is not a valid column name, the corresponding value will be ignored.
      * @return integer number of rows affected by the execution.
      */
-    public static function batchInsert($table, $data)
+    public static function insertMultiple($table, $data)
     {
-        Yii::trace('insertMultiple()','application.DbHelper');
         $columns = [];
         $i = 0;
 
@@ -64,7 +150,7 @@ class DbHelper
         {
             foreach($dataRow as $key=>$value)
             {
-                if(!array_key_exists($columns, $key))
+                if(!array_key_exists($key, $columns))
                 {
                     $columns[$key] = $i;
                     $i++;
@@ -79,8 +165,9 @@ class DbHelper
             $row = [];
             foreach($columns as $key=>$i)
             {
-                $row[$i] = array_key_exists($dataRow, $key) ? $dataRow[$key] : null;
+                $row[$i] = array_key_exists($key, $dataRow) ? $dataRow[$key] : null;
             }
+            $rows[] = $row;
         }
         return self::db()->createCommand()->batchInsert($table, array_keys($columns), $rows)->execute();
     }
@@ -111,7 +198,6 @@ class DbHelper
      */
     public static function updateMultiple($table, $data, $pkNames)
     {
-        Yii::trace('updateMultiple()','application.DbHelper');
         $command = self::createMultipleUpdateCommand($table, $data, $pkNames);
         return $command->execute();
     }
@@ -145,7 +231,7 @@ class DbHelper
         $tableSchema=self::db()->schema->getTableSchema($tableName=$table);
 
         if($tableSchema===null)
-            throw new \yii\db\Exception(Yii::t('yii','Table "{table}" does not exist.',
+            throw new Exception(Yii::t('yii','Table "{table}" does not exist.',
                 ['{table}'=>$tableName]));
         $tableName=self::db()->quoteTableName($tableSchema->name);
         $params=[];
