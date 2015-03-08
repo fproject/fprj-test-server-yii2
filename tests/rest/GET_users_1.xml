@@ -25,14 +25,6 @@
       </KeyValuePair>
     </list>
   </option>
-  <option name="parameters">
-    <list>
-      <KeyValuePair>
-        <option name="key" value="filter" />
-        <option name="value" value="{condition:&quot;name LIKE {name}&quot;,name:&quot;ABC&quot;}" />
-      </KeyValuePair>
-    </list>
-  </option>
   <option name="parametersEnabled" value="true" />
   <option name="haveTextToSend" value="false" />
   <option name="haveFileToSend" value="false" />

@@ -19,7 +19,7 @@
   </option>
   <option name="httpMethod" value="POST" />
   <option name="urlBase" value="http://localhost" />
-  <option name="urlPath" value="/fprj-test/web/users/save" />
+  <option name="urlPath" value="/fprj-test/web/users/batch-save" />
   <option name="headers">
     <list>
       <KeyValuePair>
@@ -40,6 +40,6 @@
   <option name="haveTextToSend" value="true" />
   <option name="haveFileToSend" value="false" />
   <option name="isFileUpload" value="false" />
-  <option name="textToSend" value="{&quot;username&quot;:&quot;POST /save/user07&quot;,&quot;password&quot;:&quot;abc123&quot;}" />
+  <option name="textToSend" value="[{&quot;username&quot;:&quot;POST /batch-save/user09&quot;,&quot;password&quot;:&quot;abc123&quot;},{&quot;username&quot;:&quot;POST /batch-save/user10&quot;,&quot;password&quot;:&quot;abc123&quot;}]" />
   <option name="filesToSend" value="" />
 </RestClientRequest>
