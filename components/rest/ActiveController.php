@@ -68,6 +68,11 @@ class ActiveController extends \yii\rest\ActiveController
                 'checkAccess' => [$this, 'checkAccess'],
                 'scenario' => $this->batchSaveScenario,
             ],
+            'batch-remove' => [
+                'class' => 'app\components\rest\BatchRemoveAction',
+                'modelClass' => $this->modelClass,
+                'checkAccess' => [$this, 'checkAccess'],
+            ],
         ]);
     }
 
