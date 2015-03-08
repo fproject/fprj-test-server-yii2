@@ -36,10 +36,13 @@
       </KeyValuePair>
     </list>
   </option>
+  <option name="parameters">
+    <list />
+  </option>
   <option name="parametersEnabled" value="true" />
   <option name="haveTextToSend" value="true" />
   <option name="haveFileToSend" value="false" />
   <option name="isFileUpload" value="false" />
-  <option name="textToSend" value="[{&quot;username&quot;:&quot;POST /batch-save/user09&quot;,&quot;password&quot;:&quot;abc123&quot;},{&quot;username&quot;:&quot;POST /batch-save/user10&quot;,&quot;password&quot;:&quot;abc123&quot;}]" />
+  <option name="textToSend" value="[{&quot;username&quot;:&quot;POST /batch-save/user13&quot;,&quot;password&quot;:&quot;abc123&quot;},{&quot;username&quot;:&quot;POST /batch-save/user14&quot;,&quot;password&quot;:&quot;abc123&quot;},{&quot;username&quot;:&quot;POST /batch-save/user15&quot;,&quot;password&quot;:&quot;abc123&quot;}]" />
   <option name="filesToSend" value="" />
 </RestClientRequest>

@@ -35,6 +35,7 @@ class BatchSaveAction extends Action
     public function run()
     {
         $modelArr = Yii::$app->getRequest()->getBodyParams();
+        Yii::trace($modelArr);
         $models = [];
         foreach($modelArr as $ma)
         {
@@ -42,7 +43,7 @@ class BatchSaveAction extends Action
             $model = new $this->modelClass([
                 'scenario' => $this->scenario,
             ]);
-            $model->load($ma, '');
+            $model->setAttributes($ma, false);
             $models[] = $model;
         }
 
