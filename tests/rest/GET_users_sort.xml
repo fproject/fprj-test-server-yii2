@@ -1,0 +1,42 @@
+<RestClientRequest>
+  <option name="biscuits">
+    <list>
+      <Biscuit>
+        <option name="date" value="-1" />
+        <option name="domain" value="test.f-project.net" />
+        <option name="name" value="_csrf" />
+        <option name="path" value="/" />
+        <option name="value" value="4e0cc8a924f9efe30dd522592f1521a3bf6dc364cafbaecb094476a94cccae07s%3A32%3A%22K0OKTzVwkwPSGZgT6tCRVtA9IvvlakZu%22%3B" />
+      </Biscuit>
+    </list>
+  </option>
+  <option name="httpMethod" value="GET" />
+  <option name="urlBase" value="http://localhost" />
+  <option name="urlPath" value="/fprj-test/web/users" />
+  <option name="headers">
+    <list>
+      <KeyValuePair>
+        <option name="key" value="Accept" />
+        <option name="value" value="*/*" />
+      </KeyValuePair>
+      <KeyValuePair>
+        <option name="key" value="Cache-Control" />
+        <option name="value" value="no-cache" />
+      </KeyValuePair>
+    </list>
+  </option>
+  <option name="parameters">
+    <list>
+      <KeyValuePair>
+        <option name="key" value="sort" />
+        <option name="value" value="-username" />
+      </KeyValuePair>
+    </list>
+  </option>
+  <option name="parametersEnabled" value="true" />
+  <option name="haveTextToSend" value="false" />
+  <option name="haveFileToSend" value="false" />
+  <option name="isFileUpload" value="false" />
+  <option name="textToSend" value="" />
+  <option name="filesToSend" value="" />
+</RestClientRequest>
