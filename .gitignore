@@ -27,3 +27,4 @@ phpunit.phar
 /phpunit.xml
 
 fprj-core-test-debug
+composer.lock

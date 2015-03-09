@@ -317,16 +317,16 @@
         },
         {
             "name": "fproject/yii2-restx",
-            "version": "0.1.4",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fproject/yii2-restx.git",
-                "reference": "ab9549e5ac32e9f041cc77cb3f947db1c6b6cbf6"
+                "reference": "fbcebccb0672a7aba299fd68c6333a214be242c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fproject/yii2-restx/zipball/ab9549e5ac32e9f041cc77cb3f947db1c6b6cbf6",
-                "reference": "ab9549e5ac32e9f041cc77cb3f947db1c6b6cbf6",
+                "url": "https://api.github.com/repos/fproject/yii2-restx/zipball/fbcebccb0672a7aba299fd68c6333a214be242c9",
+                "reference": "fbcebccb0672a7aba299fd68c6333a214be242c9",
                 "shasum": ""
             },
             "require": {
@@ -357,7 +357,7 @@
                 "restx",
                 "yii2"
             ],
-            "time": "2015-03-08 17:28:21"
+            "time": "2015-03-09 05:10:51"
         },
         {
             "name": "swiftmailer/swiftmailer",
