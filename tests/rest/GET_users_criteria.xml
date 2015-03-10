@@ -29,7 +29,7 @@
     <list>
       <KeyValuePair>
         <option name="key" value="criteria" />
-        <option name="value" value="{&quot;condition&quot;:&quot;username LIKE :name&quot;,&quot;params&quot;:{&quot;:name&quot;:&quot;%POST%&quot;}}" />
+        <option name="value" value="{&quot;condition&quot;:&quot;username LIKE :name&quot;,&quot;params&quot;:{&quot;:name&quot;:&quot;%Batch%&quot;}}" />
       </KeyValuePair>
     </list>
   </option>
