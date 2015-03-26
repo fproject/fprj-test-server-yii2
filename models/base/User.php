@@ -5,14 +5,16 @@ namespace app\models\base;
 use Yii;
 
 /**
- * This is the base-model class for table "f_user".
+ * This is the model class for table "user".
  *
  * @property integer $id
+ * @property integer $profileId
  * @property string $username
  * @property string $password
  * @property string $authKey
  * @property string $accessToken
  *
+ * @property UserProfile $profile
  */
 class User extends \yii\db\ActiveRecord
 {
@@ -30,9 +32,9 @@ class User extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['profileId'], 'integer'],
             [['username', 'password'], 'required'],
-            [['username', 'password', 'authKey', 'accessToken'], 'string', 'max' => 255],
-            [['username'], 'unique'],
+            [['username', 'password', 'authKey', 'accessToken'], 'string', 'max' => 255]
         ];
     }
 
@@ -42,11 +44,20 @@ class User extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'username' => Yii::t('app', 'Username'),
-            'password' => Yii::t('app', 'Password'),
-            'authKey' => Yii::t('app', 'Auth Key'),
-            'accessToken' => Yii::t('app', 'Access Token'),
+            'id' => 'ID',
+            'profileId' => 'Profile ID',
+            'username' => 'Username',
+            'password' => 'Password',
+            'authKey' => 'Auth Key',
+            'accessToken' => 'Access Token',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getProfile()
+    {
+        return $this->hasOne(UserProfile::className(), ['id' => 'profileId']);
     }
 }
