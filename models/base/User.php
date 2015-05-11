@@ -9,11 +9,13 @@ use Yii;
  *
  * @property integer $id
  * @property integer $profileId
+ * @property integer $departmentId
  * @property string $username
  * @property string $password
  * @property string $authKey
  * @property string $accessToken
  *
+ * @property Department $department
  * @property UserProfile $profile
  */
 class User extends \yii\db\ActiveRecord
@@ -32,7 +34,7 @@ class User extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['profileId'], 'integer'],
+            [['profileId', 'departmentId'], 'integer'],
             [['username', 'password'], 'required'],
             [['username', 'password', 'authKey', 'accessToken'], 'string', 'max' => 255]
         ];
@@ -46,11 +48,20 @@ class User extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'profileId' => 'Profile ID',
+            'departmentId' => 'Department ID',
             'username' => 'Username',
             'password' => 'Password',
             'authKey' => 'Auth Key',
             'accessToken' => 'Access Token',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getDepartment()
+    {
+        return $this->hasOne(Department::className(), ['id' => 'departmentId']);
     }
 
     /**

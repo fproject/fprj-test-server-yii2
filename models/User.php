@@ -90,6 +90,6 @@ class User extends \app\models\base\User implements \yii\web\IdentityInterface
 
     public function extraFields()
     {
-        return ['profile'];
+        return ['profile','department'];
     }
 }
