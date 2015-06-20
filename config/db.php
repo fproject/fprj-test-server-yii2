@@ -7,6 +7,6 @@ return [
     'password' => 'test_12345',*/
     'dsn' => 'mysql:host=localhost;dbname=fprjtest',
     'username' => 'root',
-    'password' => '',
+    'password' => 'root',
     'charset' => 'utf8',
 ];
