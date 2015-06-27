@@ -24,7 +24,7 @@ class UserController extends ActiveController{
                 $q->select('id,phone');
             },
             'department',
-        ],false);
+        ]);
 
         return $query;
     }
