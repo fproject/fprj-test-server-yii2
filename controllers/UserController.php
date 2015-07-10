@@ -7,6 +7,8 @@ use yii\db\ActiveQuery;
 class UserController extends ActiveController{
     public $modelClass = 'app\models\User';
 
+    public $useSecureSearch = false;
+
     /**
      * Condition to find all resources with relations.
      * Use '@findAllCondition' as the key for client-side condition
