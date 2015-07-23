@@ -48,7 +48,7 @@ $config = [
             'enableStrictParsing' => true,
             'showScriptName' => false,
             'rules' => [
-                ['class' => 'fproject\rest\UrlRule', 'controller' => 'user'],
+                ['class' => 'fproject\rest\UrlRule', 'controller' => ['user','employee']],
             ],
         ],
     ],

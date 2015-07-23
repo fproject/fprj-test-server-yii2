@@ -19,6 +19,13 @@ class m150212_091806_create_tables_and_data extends Migration
             'name' => Schema::TYPE_STRING,
         ]);
 
+        $this->createTable('employee', [
+            'id' => 'pk',
+            'name' => Schema::TYPE_STRING . ' NOT NULL',
+            'phone' => Schema::TYPE_STRING . ' NOT NULL',
+            'age' => Schema::TYPE_INTEGER,
+        ]);
+
         $this->createTable('user', [
             'id' => 'pk',
             'profileId' => "int(11)",
@@ -84,15 +91,29 @@ class m150212_091806_create_tables_and_data extends Migration
         $data=[];
         for($i=0; $i<500;$i++)
         {
-            $data[] = ['profileId'=>$i+3,
+            $data[] = [
+                'profileId'=>$i+3,
                 'departmentId'=> 1+ ($i % 100),
                 'username' => 'demo_no_'.$i,
                 'password' => 'demo_no_'.$i,
                 'authKey' => "test_$i _key",
-                'accessToken' => 'test_$i _token',];
+                'accessToken' => 'test_$i _token',
+            ];
         }
 
         DbHelper::insertMultiple('user', $data);
+
+        $data=[];
+        for($i=0; $i<10;$i++)
+        {
+            $data[] = [
+                'name' => 'employee_'.($i + 1),
+                'phone' => $i.'0123454',
+                'age' => (20 + $i)
+            ];
+        }
+
+        DbHelper::insertMultiple('employee', $data);
     }
 
     public function down()

@@ -4,9 +4,9 @@ namespace app\controllers;
 use fproject\rest\ActiveController;
 use yii\db\ActiveQuery;
 
-class UserController extends ActiveController
+class EmployeeController extends ActiveController
 {
-    public $modelClass = 'app\models\User';
+    public $modelClass = 'app\models\Employee';
 
     public $useSecureSearch = false;
 
