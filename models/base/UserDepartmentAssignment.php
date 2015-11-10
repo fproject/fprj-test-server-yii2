@@ -29,7 +29,7 @@ class UserDepartmentAssignment extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['userId', 'departmentId'], 'integer'],
+            [['userId', 'departmentId','_isInserting'], 'integer'],
         ];
     }
 
