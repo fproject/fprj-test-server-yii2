@@ -1,0 +1,60 @@
+<RestClientRequest>
+  <option name="biscuits">
+    <list>
+      <Biscuit>
+        <option name="date" value="-1" />
+        <option name="domain" value="test.f-project.net" />
+        <option name="name" value="_csrf" />
+        <option name="path" value="/" />
+        <option name="value" value="4e0cc8a924f9efe30dd522592f1521a3bf6dc364cafbaecb094476a94cccae07s%3A32%3A%22K0OKTzVwkwPSGZgT6tCRVtA9IvvlakZu%22%3B" />
+      </Biscuit>
+      <Biscuit>
+        <option name="date" value="-1" />
+        <option name="domain" value="localhost" />
+        <option name="name" value="_csrf" />
+        <option name="path" value="/" />
+        <option name="value" value="1bd2dba64a901c4a599fcff2ab66cd01c1c7b711e4211689e2f1c3750ed37f34a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22kqGYKp96kh-XGhICViPNUA-YZU4GhyL0%22%3B%7D" />
+      </Biscuit>
+      <Biscuit>
+        <option name="date" value="1447230908000" />
+        <option name="domain" value="localhost" />
+        <option name="name" value="XDEBUG_SESSION" />
+        <option name="path" value="/" />
+        <option name="value" value="abc" />
+      </Biscuit>
+    </list>
+  </option>
+  <option name="httpMethod" value="GET" />
+  <option name="urlBase" value="http://localhost" />
+  <option name="urlPath" value="/fprj-test/web/user-department-assignments/remove/%7B%22userId%22%3A+1%2C%22departmentId%22+%3A+1%7D" />
+  <option name="headers">
+    <list>
+      <KeyValuePair>
+        <option name="key" value="Accept" />
+        <option name="value" value="*/*" />
+      </KeyValuePair>
+      <KeyValuePair>
+        <option name="key" value="Cache-Control" />
+        <option name="value" value="no-cache" />
+      </KeyValuePair>
+      <KeyValuePair>
+        <option name="key" value="Content-Type" />
+        <option name="value" value="application/json" />
+      </KeyValuePair>
+    </list>
+  </option>
+  <option name="parameters">
+    <list>
+      <KeyValuePair>
+        <option name="key" value="XDEBUG_SESSION_START" />
+        <option name="value" value="abc" />
+      </KeyValuePair>
+    </list>
+  </option>
+  <option name="parametersEnabled" value="true" />
+  <option name="haveTextToSend" value="false" />
+  <option name="haveFileToSend" value="false" />
+  <option name="isFileUpload" value="false" />
+  <option name="textToSend" value="{&quot;userId&quot;: 1,&quot;departmentId&quot; : 1,&quot;_isInserting&quot; : true}" />
+  <option name="filesToSend" value="" />
+</RestClientRequest>

@@ -1,0 +1,61 @@
+<RestClientRequest>
+  <option name="biscuits">
+    <list>
+      <Biscuit>
+        <option name="date" value="-1" />
+        <option name="domain" value="test.f-project.net" />
+        <option name="name" value="_csrf" />
+        <option name="path" value="/" />
+        <option name="value" value="4e0cc8a924f9efe30dd522592f1521a3bf6dc364cafbaecb094476a94cccae07s%3A32%3A%22K0OKTzVwkwPSGZgT6tCRVtA9IvvlakZu%22%3B" />
+      </Biscuit>
+      <Biscuit>
+        <option name="date" value="1447148213000" />
+        <option name="domain" value="localhost" />
+        <option name="name" value="XDEBUG_SESSION" />
+        <option name="path" value="/" />
+        <option name="value" value="abc" />
+      </Biscuit>
+    </list>
+  </option>
+  <option name="httpMethod" value="POST" />
+  <option name="urlBase" value="http://localhost" />
+  <option name="urlPath" value="fprj-test/web/user-department-assignments/save" />
+  <option name="headers">
+    <list>
+      <KeyValuePair>
+        <option name="key" value="Accept" />
+        <option name="value" value="*/*" />
+      </KeyValuePair>
+      <KeyValuePair>
+        <option name="key" value="Cache-Control" />
+        <option name="value" value="no-cache" />
+      </KeyValuePair>
+      <KeyValuePair>
+        <option name="key" value="Authorization" />
+        <option name="value" value="Bearer mytoken123" />
+      </KeyValuePair>
+      <KeyValuePair>
+        <option name="key" value="Content-Type" />
+        <option name="value" value="application/json" />
+      </KeyValuePair>
+    </list>
+  </option>
+  <option name="parameters">
+    <list>
+      <KeyValuePair>
+        <option name="key" value="_format" />
+        <option name="value" value="json" />
+      </KeyValuePair>
+      <KeyValuePair>
+        <option name="key" value="XDEBUG_SESSION_START" />
+        <option name="value" value="abc" />
+      </KeyValuePair>
+    </list>
+  </option>
+  <option name="parametersEnabled" value="true" />
+  <option name="haveTextToSend" value="true" />
+  <option name="haveFileToSend" value="false" />
+  <option name="isFileUpload" value="false" />
+  <option name="textToSend" value="{&quot;userId&quot;: 1,&quot;departmentId&quot; : 1,&quot;_isInserting&quot; : true}" />
+  <option name="filesToSend" value="" />
+</RestClientRequest>
