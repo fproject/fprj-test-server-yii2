@@ -27,8 +27,8 @@ http://localhost/fprj-test/
 
 ### Create the database and run migration
 
-You must create a database named `fprjtest` under your MySQL database server
-you can specify another database in the Yii2's configuration:
+You must create a database named `fprjtest` in your MySQL database server.
+You can also specify another database in the Yii2's configuration:
 
 ```php
 return [
