@@ -31,7 +31,7 @@ class m150212_091806_create_tables_and_data extends Migration
             'profileId' => "int(11)",
             'departmentId' => "int(11)",
             'username' => Schema::TYPE_STRING . ' NOT NULL',
-            'password' => Schema::TYPE_STRING . ' NOT NULL',
+            'password' => Schema::TYPE_STRING,
             'authKey' => Schema::TYPE_STRING,
             'accessToken' => Schema::TYPE_STRING,
         ]);
