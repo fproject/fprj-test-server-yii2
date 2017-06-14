@@ -47,7 +47,7 @@ $this->title = 'My Yii Application';
             </div>
         </div>
         <div>
-            <p>Test commit code</p>
+            <p>Test commit code on github</p>
         </div>
     </div>
 </div>
